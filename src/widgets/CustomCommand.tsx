@@ -60,7 +60,12 @@ export class CustomCommandWidget implements Widget {
         } else if (item.commandPath && context.data) {
             try {
                 const timeout = item.timeout ?? 1000;
-                const jsonInput = JSON.stringify(context.data);
+                // Include terminalWidth in the data passed to custom commands
+                const commandData = {
+                    ...context.data,
+                    terminalWidth: context.terminalWidth ?? 80
+                };
+                const jsonInput = JSON.stringify(commandData);
                 let output = execSync(item.commandPath, {
                     encoding: 'utf8',
                     input: jsonInput,
