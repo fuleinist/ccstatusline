@@ -33,6 +33,7 @@ export const WIDGET_MANIFEST: WidgetManifestEntry[] = [
     { type: 'git-ahead-behind', create: () => new widgets.GitAheadBehindWidget() },
     { type: 'git-conflicts', create: () => new widgets.GitConflictsWidget() },
     { type: 'git-sha', create: () => new widgets.GitShaWidget() },
+    { type: 'git-tag', create: () => new widgets.GitTagWidget() },
     { type: 'git-origin-owner', create: () => new widgets.GitOriginOwnerWidget() },
     { type: 'git-origin-repo', create: () => new widgets.GitOriginRepoWidget() },
     { type: 'git-origin-owner-repo', create: () => new widgets.GitOriginOwnerRepoWidget() },

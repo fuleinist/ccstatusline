@@ -14,6 +14,7 @@ export { GitUntrackedWidget } from './GitUntracked';
 export { GitAheadBehindWidget } from './GitAheadBehind';
 export { GitConflictsWidget } from './GitConflicts';
 export { GitShaWidget } from './GitSha';
+export { GitTagWidget } from './GitTag';
 export { GitOriginOwnerWidget } from './GitOriginOwner';
 export { GitOriginRepoWidget } from './GitOriginRepo';
 export { GitOriginOwnerRepoWidget } from './GitOriginOwnerRepo';

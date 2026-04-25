@@ -175,3 +175,13 @@ export function getGitConflictCount(context: RenderContext): number {
 export function getGitShortSha(context: RenderContext): string | null {
     return runGit('rev-parse --short HEAD', context);
 }
+
+export function getGitTag(context: RenderContext): string | null {
+    // Get the most recent tag on the current branch, decorated with tagger date
+    // Uses --format to get tag name only (annotated tags), fallback to branch refs/tags/
+    const output = runGit('describe --tags --abbrev=0 2>/dev/null', context);
+    if (output) return output;
+    // Fallback: get most recent tag referencing HEAD even if not on tag
+    const fallback = runGit('tag --list --sort=-version:refname --format="%(refname:short)" | head -1', context);
+    return fallback?.trim() ?? null;
+}
